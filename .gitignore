@@ -16,3 +16,14 @@ logs/
 # ── Variables de entorno ──────────────────────────────────────
 .env
 .env.local
+
+# ── Archivos temporales y backups ─────────────────────────────
+*.bak
+*.orig
+tmp/
+temp/
+dist/
+
+# ── npm (si algún día se agrega tooling) ──────────────────────
+node_modules/
+npm-debug.log*
