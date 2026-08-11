@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  portafolio:
+    build: .
+    container_name: portafolio_app
+    restart: always
+    ports:
+      - "8896:80"
+    networks:
+      - sodicol_network
+
+networks:
+  sodicol_network:
+    external: true

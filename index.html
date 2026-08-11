@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santiago Lizcano Suarez | Desarrollador Web</title>
+  <meta name="description" content="Portafolio de Santiago Lizcano Suarez, Tecnólogo en Análisis y Desarrollo de Software. Especializado en PHP, Python, MySQL, Docker y desarrollo web." />
+  <meta name="keywords" content="desarrollador web, PHP, Python, Flask, MySQL, Docker, JavaScript, portafolio" />
+  <meta name="author" content="Santiago Lizcano Suarez" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" class="scroll-progress"></div>
+
+  <!-- Background Orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Particles Canvas -->
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="nav-logo-link">
+        <span class="logo-bracket">&lt;</span>SLS<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">Sobre mí</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Proyectos</a></li>
+        <li><a href="#contact" class="nav-link">Contacto</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponible para proyectos
+      </div>
+      <h1 class="hero-title">
+        Hola, soy<br />
+        <span class="gradient-text">Santiago Lizcano</span>
+      </h1>
+      <div class="hero-role">
+        <span class="role-prefix">&gt;&nbsp;</span>
+        <span id="typed-text" class="typed-text"></span>
+        <span class="cursor-blink">|</span>
+      </div>
+      <p class="hero-desc">
+        Tecnólogo en Análisis y Desarrollo de Software apasionado por crear soluciones web robustas, eficientes y escalables.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary" id="hero-projects-btn">
+          <i class="fas fa-rocket"></i> Ver Proyectos
+        </a>
+        <a href="#contact" class="btn btn-outline" id="hero-contact-btn">
+          <i class="fas fa-paper-plane"></i> Contactar
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/Santiago072" target="_blank" rel="noopener" class="social-icon" id="social-github" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:santiagolizcanosuarez@gmail.com" class="social-icon" id="social-email" aria-label="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://wa.me/573217235089" target="_blank" rel="noopener" class="social-icon" id="social-whatsapp" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+    <!-- 3D Tech Sphere Visual -->
+    <div class="hero-visual" id="hero-visual">
+      <!-- Central Core -->
+      <div class="sphere-wrap">
+        <div class="sphere-core">
+          <span class="sphere-code">&lt;/&gt;</span>
+        </div>
+        <div class="sphere-pulse"></div>
+        <div class="sphere-pulse sp2"></div>
+        <div class="sphere-pulse sp3"></div>
+        <!-- Orbital rings -->
+        <div class="orbit orbit-x">
+          <div class="orbit-dot od-php"><i class="fab fa-php"></i></div>
+        </div>
+        <div class="orbit orbit-y">
+          <div class="orbit-dot od-py"><i class="fab fa-python"></i></div>
+        </div>
+        <div class="orbit orbit-z">
+          <div class="orbit-dot od-docker"><i class="fab fa-docker"></i></div>
+        </div>
+        <div class="orbit orbit-w">
+          <div class="orbit-dot od-js"><i class="fab fa-js"></i></div>
+        </div>
+      </div>
+      <!-- Floating code snippets -->
+      <div class="code-float cf-1">
+        <div class="cf-dot"></div>
+        <span class="cf-kw">const</span> <span class="cf-var">dev</span> = {<br/>
+        &nbsp;&nbsp;<span class="cf-key">name</span>: <span class="cf-str">"Santiago"</span>,<br/>
+        &nbsp;&nbsp;<span class="cf-key">role</span>: <span class="cf-str">"Dev Web"</span><br/>
+        }
+      </div>
+      <div class="code-float cf-2">
+        <div class="cf-dot cf-dot-green"></div>
+        <span class="cf-cm"># deploy exitoso 🚀</span><br/>
+        <span class="cf-kw">bash</span> deploy.sh
+      </div>
+      <div class="code-float cf-3">
+        <div class="cf-dot cf-dot-cyan"></div>
+        SELECT * FROM proyectos<br/>
+        <span class="cf-kw">WHERE</span> estado = <span class="cf-str">'live'</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// about_me</span>
+        <h2 class="section-title">Sobre <span class="gradient-text">Mí</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card glass-card">
+          <div class="about-icon-wrap">
+            <i class="fas fa-user-astronaut"></i>
+          </div>
+          <h3>¿Quién soy?</h3>
+          <p>
+            Tecnólogo en Análisis y Desarrollo de Software con sólida experiencia en programación, bases de datos y arquitecturas web. Me especializo en construir aplicaciones funcionales, escalables y bien estructuradas que resuelven problemas reales.
+          </p>
+        </div>
+        <div class="about-card glass-card">
+          <div class="about-icon-wrap">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>¿Qué hago?</h3>
+          <p>
+            Desarrollo aplicaciones web de punta a punta usando PHP, Python con Flask, MySQL, HTML, CSS y JavaScript. Implemento soluciones con Docker y gestiono despliegues en entornos de producción sobre VPS.
+          </p>
+        </div>
+        <div class="about-card glass-card">
+          <div class="about-icon-wrap">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Mi enfoque</h3>
+          <p>
+            Perfil proactivo, autodidacta y orientado a la resolución de problemas. Me adapto con facilidad a nuevos retos tecnológicos y trabajo con atención al detalle para entregar soluciones limpias y de calidad.
+          </p>
+        </div>
+        <div class="about-stats glass-card">
+          <div class="stat-item">
+            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-label">Proyectos<br/>Completados</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="7">0</span>
+            <span class="stat-label">Tecnologías<br/>Dominadas</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="100">0</span>
+            <span class="stat-label">% Compromiso<br/>en cada proyecto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// tech_stack</span>
+        <h2 class="section-title">Mis <span class="gradient-text">Skills</span></h2>
+      </div>
+    </div>
+
+    <!-- Marquee wrapper (outside container for full-width edge fade) -->
+    <div class="skills-marquee-wrap">
+
+      <!-- Row 1 → left -->
+      <div class="marquee-track marquee-left">
+        <div class="marquee-items">
+          <div class="skill-card" id="skill-html"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-html5"></i></div><span class="skill-name">HTML</span></div>
+          <div class="skill-card" id="skill-css"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-css3-alt"></i></div><span class="skill-name">CSS</span></div>
+          <div class="skill-card" id="skill-js"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-js"></i></div><span class="skill-name">JavaScript</span></div>
+          <div class="skill-card" id="skill-responsive"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-mobile-alt"></i></div><span class="skill-name">Responsive</span></div>
+          <div class="skill-card" id="skill-php"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-php"></i></div><span class="skill-name">PHP</span></div>
+          <div class="skill-card" id="skill-python"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-python"></i></div><span class="skill-name">Python</span></div>
+          <div class="skill-card" id="skill-flask"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-flask"></i></div><span class="skill-name">Flask</span></div>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="marquee-items" aria-hidden="true">
+          <div class="skill-card" id="skill-html-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-html5"></i></div><span class="skill-name">HTML</span></div>
+          <div class="skill-card" id="skill-css-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-css3-alt"></i></div><span class="skill-name">CSS</span></div>
+          <div class="skill-card" id="skill-js-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-js"></i></div><span class="skill-name">JavaScript</span></div>
+          <div class="skill-card" id="skill-responsive-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-mobile-alt"></i></div><span class="skill-name">Responsive</span></div>
+          <div class="skill-card" id="skill-php-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-php"></i></div><span class="skill-name">PHP</span></div>
+          <div class="skill-card" id="skill-python-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-python"></i></div><span class="skill-name">Python</span></div>
+          <div class="skill-card" id="skill-flask-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-flask"></i></div><span class="skill-name">Flask</span></div>
+        </div>
+      </div>
+
+      <!-- Row 2 ← right -->
+      <div class="marquee-track marquee-right">
+        <div class="marquee-items">
+          <div class="skill-card" id="skill-mysql"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-database"></i></div><span class="skill-name">MySQL</span></div>
+          <div class="skill-card" id="skill-mvc"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-layer-group"></i></div><span class="skill-name">Arq. MVC</span></div>
+          <div class="skill-card" id="skill-docker"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-docker"></i></div><span class="skill-name">Docker</span></div>
+          <div class="skill-card" id="skill-git"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-github"></i></div><span class="skill-name">Git / GitHub</span></div>
+          <div class="skill-card" id="skill-vscode"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-code"></i></div><span class="skill-name">VS Code</span></div>
+          <div class="skill-card" id="skill-xampp"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-server"></i></div><span class="skill-name">XAMPP</span></div>
+          <div class="skill-card" id="skill-drawio"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-diagram-project"></i></div><span class="skill-name">Draw.io</span></div>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="marquee-items" aria-hidden="true">
+          <div class="skill-card" id="skill-mysql-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-database"></i></div><span class="skill-name">MySQL</span></div>
+          <div class="skill-card" id="skill-mvc-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-layer-group"></i></div><span class="skill-name">Arq. MVC</span></div>
+          <div class="skill-card" id="skill-docker-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-docker"></i></div><span class="skill-name">Docker</span></div>
+          <div class="skill-card" id="skill-git-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fab fa-github"></i></div><span class="skill-name">Git / GitHub</span></div>
+          <div class="skill-card" id="skill-vscode-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-code"></i></div><span class="skill-name">VS Code</span></div>
+          <div class="skill-card" id="skill-xampp-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-server"></i></div><span class="skill-name">XAMPP</span></div>
+          <div class="skill-card" id="skill-drawio-d"><div class="skill-icon-wrap"><div class="skill-icon-bg"></div><i class="skill-ico fas fa-diagram-project"></i></div><span class="skill-name">Draw.io</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// my_projects</span>
+        <h2 class="section-title">Mis <span class="gradient-text">Proyectos</span></h2>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Sodicol -->
+        <article class="project-card glass-card" id="project-sodicol">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://sistemasodicol.slscode.online/" target="_blank" rel="noopener" class="proj-link-btn" aria-label="Ver sitio Sodicol">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Sistema Sodicol</h3>
+          <p class="project-desc">
+            Aplicación web integral para la gestión y administración empresarial de Sodicol. Incluye módulos de autenticación, generación de PDFs, gestión de datos y reportes avanzados.
+          </p>
+          <div class="project-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">DomPDF</span>
+          </div>
+          <a href="https://sistemasodicol.slscode.online/" target="_blank" rel="noopener" class="project-cta" id="btn-sodicol">
+            Ver proyecto <i class="fas fa-arrow-right"></i>
+          </a>
+        </article>
+
+        <!-- PQRS -->
+        <article class="project-card glass-card" id="project-pqrs">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://sistemapqrs.slscode.online/" target="_blank" rel="noopener" class="proj-link-btn" aria-label="Ver sitio PQRS">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Sistema PQRS</h3>
+          <p class="project-desc">
+            Plataforma de gestión de Peticiones, Quejas, Reclamos y Sugerencias. Permite el seguimiento, clasificación, generación de reportes en PDF y gestión completa del ciclo de vida de cada caso.
+          </p>
+          <div class="project-tags">
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">SMTP</span>
+          </div>
+          <a href="https://sistemapqrs.slscode.online/" target="_blank" rel="noopener" class="project-cta" id="btn-pqrs">
+            Ver proyecto <i class="fas fa-arrow-right"></i>
+          </a>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// get_in_touch</span>
+        <h2 class="section-title">¿Hablamos? <span class="gradient-text">Contacto</span></h2>
+        <p class="section-subtitle">¿Tienes un proyecto en mente o quieres trabajar juntos? ¡Escríbeme!</p>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:santiagolizcanosuarez@gmail.com" class="contact-card glass-card" id="contact-email">
+          <div class="contact-icon-wrap">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Correo Electrónico</h3>
+          <p>santiagolizcanosuarez@gmail.com</p>
+          <span class="contact-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="https://wa.me/573217235089" target="_blank" rel="noopener" class="contact-card glass-card" id="contact-whatsapp">
+          <div class="contact-icon-wrap contact-icon-green">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>+57 321 723 5089</p>
+          <span class="contact-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/Santiago072" target="_blank" rel="noopener" class="contact-card glass-card" id="contact-github">
+          <div class="contact-icon-wrap contact-icon-purple">
+            <i class="fab fa-github"></i>
+          </div>
+          <h3>GitHub</h3>
+          <p>github.com/Santiago072</p>
+          <span class="contact-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        <span class="footer-logo">&lt;SLS/&gt;</span>
+        Diseñado y desarrollado por
+        <strong>Santiago Lizcano Suarez</strong> &mdash; 2025
+      </p>
+      <p class="footer-sub">Tecnólogo en Análisis y Desarrollo de Software</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
