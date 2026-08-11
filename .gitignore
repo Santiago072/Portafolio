@@ -1,14 +1,18 @@
-# Dependencies
-vendor/
-node_modules/
+# ── Editor ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Environment
-.env
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
 
-# Logs
+# ── Logs ──────────────────────────────────────────────────────
 *.log
 logs/
 
-# OS
-.DS_Store
-Thumbs.db
+# ── Variables de entorno ──────────────────────────────────────
+.env
+.env.local
