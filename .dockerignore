@@ -1,0 +1,23 @@
+# ── Control de versiones ──────────────────────────────────────
+.git
+.gitignore
+.github
+
+# ── Infraestructura (no debe estar en la imagen web) ──────────
+nginx/
+deploy.sh
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# ── Documentación ─────────────────────────────────────────────
+README.md
+CHANGELOG.md
+LICENSE
+docs/
+
+# ── Editor y OS ───────────────────────────────────────────────
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
