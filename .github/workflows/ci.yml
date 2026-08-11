@@ -1,0 +1,51 @@
+name: CI — Portafolio
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ─────────────────────────────────────────────
+  # JOB 1: Validación de HTML
+  # ─────────────────────────────────────────────
+  html-validate:
+    name: Validar HTML (htmlhint)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Instalar htmlhint
+        run: npm install -g htmlhint
+
+      - name: ✅ Validar index.html
+        run: htmlhint index.html --config .htmlhintrc
+
+  # ─────────────────────────────────────────────
+  # JOB 2: Verificar build de Docker
+  # ─────────────────────────────────────────────
+  docker-build:
+    name: Verificar Build Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: 🐳 Construir imagen Docker
+        run: docker build -t portafolio-test .
+
+      - name: 🔍 Verificar que el contenedor arranca
+        run: |
+          docker run -d --name portafolio-ci -p 8080:80 portafolio-test
+          sleep 3
+          curl -f http://localhost:8080 || exit 1
+          docker stop portafolio-ci
