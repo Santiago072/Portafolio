@@ -12,8 +12,65 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ── Intro Screen ── */
+    #intro-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgb(29, 30, 34);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1.5rem;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    #intro-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    #intro-screen svg {
+      width: min(50vw, 50vh);
+      max-width: 340px;
+      overflow: visible;
+    }
+    #intro-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      animation: introLabelPulse 2s ease-in-out infinite;
+    }
+    @keyframes introLabelPulse {
+      0%, 100% { opacity: 0.35; }
+      50%       { opacity: 0.7;  }
+    }
+    body.intro-active { overflow: hidden; }
+  </style>
 </head>
-<body>
+<body class="intro-active">
+
+  <!-- ===== INTRO SCREEN ===== -->
+  <div id="intro-screen" aria-label="Cargando portafolio" role="status">
+    <svg viewBox="0 0 10 10" fill="none" opacity="0" id="intro-svg">
+      <defs>
+        <linearGradient id="intro-grad">
+          <stop offset="9%"  stop-color="rgba(29,30,34,.9)" />
+          <stop offset="30%" stop-color="rgba(29,30,34,0)"  />
+          <stop offset="68%" stop-color="rgba(29,30,34,0.5)" />
+          <stop offset="91%" stop-color="rgba(29,30,34,.8)" />
+        </linearGradient>
+      </defs>
+      <g id="intro-g">
+        <path stroke="#4d8fff" stroke-width="0.02" d="M5,1 9,8 1,8z" />
+      </g>
+      <rect fill="url(#intro-grad)" width="11" height="11" />
+    </svg>
+    <span id="intro-label">&lt;SLS /&gt;</span>
+  </div>
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress" class="scroll-progress"></div>
 
@@ -364,5 +421,66 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- GSAP (intro animation) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    /* ========================
+       INTRO SCREEN — GSAP triangles
+    ======================== */
+    (function () {
+      const intro  = document.getElementById('intro-screen');
+      const svg    = document.getElementById('intro-svg');
+      const g      = document.getElementById('intro-g');
+      const path   = g.querySelector('path');
+      const rect   = svg.querySelector('rect');
+
+      // Clone 50 extra triangle paths
+      for (let i = 0; i < 50; i++) {
+        g.append(path.cloneNode());
+      }
+
+      // Rotate the gradient overlay rect
+      gsap.set(rect, { rotate: 45, svgOrigin: '5 5' });
+
+      // Build the spread timeline (paused)
+      const spread = gsap.timeline({ paused: true })
+        .to(g, { svgOrigin: '5 5.5', rotate: -180, duration: 1 })
+        .to('path', {
+          svgOrigin: '5 5.5',
+          rotate: -180,
+          scale: 0.15,
+          attr: { 'stroke-width': 0 },
+          ease: 'power1.in',
+          stagger: { amount: 0.5, ease: 'sine.in' },
+          duration: 1
+        }, 0);
+
+      // Animate progress 0 → 0.5 → 0 (one full yoyo cycle)
+      const masterTl = gsap.timeline({
+        onComplete: hideIntro
+      });
+
+      // Fade in the SVG
+      masterTl
+        .to(svg, { opacity: 1, duration: 0.4, ease: 'power2.out' })
+        // Go to spread midpoint (progress 0.5)
+        .to(spread, { progress: 0.5, duration: 2.2, ease: 'power2.inOut' })
+        // Hold a beat
+        .to({}, { duration: 0.3 })
+        // Return to start (progress 0)
+        .to(spread, { progress: 0, duration: 2.2, ease: 'power2.inOut' })
+        // Fade out SVG before overlay disappears
+        .to(svg, { opacity: 0, duration: 0.4, ease: 'power2.in' });
+
+      function hideIntro() {
+        intro.classList.add('hidden');
+        document.body.classList.remove('intro-active');
+        // Clean up after transition ends
+        intro.addEventListener('transitionend', () => intro.remove(), { once: true });
+      }
+    })();
+  </script>
 </body>
+
 </html>

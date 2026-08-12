@@ -7,7 +7,20 @@ y este proyecto se adhiere al [Versionamiento Semántico](https://semver.org/lan
 
 ---
 
+## [v1.2.0] - 2026-08-12
+### Intro Screen animado con GSAP
+
+#### ✨ Nueva característica
+- **Pantalla de intro** al cargar la página: animación de 50 triángulos SVG que se expanden y contraen usando GSAP, con overlay de gradiente y etiqueta `<SLS />` pulsante.
+- **Secuencia**: fade-in del SVG → spread de triángulos → hold → colapso → fade-out → reveal del portafolio (~6 segundos total).
+- Color del trazo adaptado a la paleta del portafolio (`#4d8fff`).
+- El `<body>` bloquea el scroll (`overflow: hidden`) durante el intro y lo libera al terminar.
+- El nodo del intro se elimina del DOM tras la transición de salida (sin overhead residual).
+
+---
+
 ## [v1.1.0] - 2026-08-11
+
 ### Seguridad, Infraestructura y Madurez del Repositorio
 
 #### 🔒 Seguridad
