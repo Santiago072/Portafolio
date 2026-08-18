@@ -223,7 +223,7 @@
         </div>
         <div class="about-stats glass-card">
           <div class="stat-item">
-            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-num" data-target="4">0</span>
             <span class="stat-label">Proyectos<br/>Completados</span>
           </div>
           <div class="stat-divider"></div>
@@ -312,6 +312,58 @@
       </div>
       <div class="projects-grid">
 
+        <!-- Sistema Impobiomedical -->
+        <article class="project-card glass-card" id="project-impobiomedical">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-heart-pulse"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://sistemaimpobiomedical.slscode.online/" target="_blank" rel="noopener" class="proj-link-btn" aria-label="Ver sitio Impobiomedical">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Sistema Impobiomedical</h3>
+          <p class="project-desc">
+            Plataforma web de gestión comercial, cotizaciones médicas, calculadora de rentabilidad, catálogo de productos con imágenes, órdenes de compra por proveedor (P.O.), generación de PDFs oficiales y reportes estadísticos avanzados.
+          </p>
+          <div class="project-tags">
+            <span class="tag">PHP 8.2</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MVC</span>
+            <span class="tag">DomPDF</span>
+            <span class="tag">PHPUnit</span>
+            <span class="tag">Docker</span>
+          </div>
+        </article>
+
+        <!-- Sistema Gestión Datos SENA -->
+        <article class="project-card glass-card" id="project-gestion-datos">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="project-links">
+              <a href="https://gestiondatos.slscode.online/" target="_blank" rel="noopener" class="proj-link-btn" aria-label="Ver sitio Gestión de Datos">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Sistema Gestión de Datos</h3>
+          <p class="project-desc">
+            Sistema analítico y de auditoría académica para el SENA. Incluye procesamiento por lotes de juicios evaluativos de Sofia Plus, extracción curricular automatizada con Python (PDF GFPI-F-016), curvas de retención y auditoría de instructores.
+          </p>
+          <div class="project-tags">
+            <span class="tag">PHP 8.2</span>
+            <span class="tag">Python</span>
+            <span class="tag">MariaDB</span>
+            <span class="tag">Chart.js</span>
+            <span class="tag">pdfplumber</span>
+            <span class="tag">Docker</span>
+          </div>
+        </article>
+
         <!-- Sodicol -->
         <article class="project-card glass-card" id="project-sodicol">
           <div class="project-header">
@@ -334,9 +386,6 @@
             <span class="tag">Docker</span>
             <span class="tag">DomPDF</span>
           </div>
-          <a href="https://sistemasodicol.slscode.online/" target="_blank" rel="noopener" class="project-cta" id="btn-sodicol">
-            Ver proyecto <i class="fas fa-arrow-right"></i>
-          </a>
         </article>
 
         <!-- PQRS -->
@@ -361,9 +410,6 @@
             <span class="tag">Docker</span>
             <span class="tag">SMTP</span>
           </div>
-          <a href="https://sistemapqrs.slscode.online/" target="_blank" rel="noopener" class="project-cta" id="btn-pqrs">
-            Ver proyecto <i class="fas fa-arrow-right"></i>
-          </a>
         </article>
 
 
@@ -456,7 +502,7 @@
           duration: 1
         }, 0);
 
-      // Animate progress 0 → 0.5 → 0 (one full yoyo cycle)
+      // Animate progress 0 → 0.5 (despliegue de la figura geométrica)
       const masterTl = gsap.timeline({
         onComplete: hideIntro
       });
@@ -464,20 +510,18 @@
       // Fade in the SVG
       masterTl
         .to(svg, { opacity: 1, duration: 0.4, ease: 'power2.out' })
-        // Go to spread midpoint (progress 0.5)
-        .to(spread, { progress: 0.5, duration: 2.2, ease: 'power2.inOut' })
-        // Hold a beat
+        // Desplegar la figura geométrica hasta el punto máximo mostrado
+        .to(spread, { progress: 0.5, duration: 1.8, ease: 'power2.inOut' })
+        // Pausa breve para apreciar la figura formada
         .to({}, { duration: 0.3 })
-        // Return to start (progress 0)
-        .to(spread, { progress: 0, duration: 2.2, ease: 'power2.inOut' })
-        // Fade out SVG before overlay disappears
-        .to(svg, { opacity: 0, duration: 0.4, ease: 'power2.in' });
+        // Desvanecer el overlay de intro y mostrar el contenido
+        .to(intro, { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, '+=0.1');
 
       function hideIntro() {
         intro.classList.add('hidden');
         document.body.classList.remove('intro-active');
         // Clean up after transition ends
-        intro.addEventListener('transitionend', () => intro.remove(), { once: true });
+        setTimeout(() => intro.remove(), 600);
       }
     })();
   </script>
