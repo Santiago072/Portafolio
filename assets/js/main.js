@@ -134,9 +134,10 @@ if (heroVisual) {
 /* ========================
    TYPED TEXT
 ======================== */
-const phrases = [
+let phrases = [
   'Desarrollador Web',
-  'PHP Developer',
+  'PHP & Arquitectura MVC',
+  'React & PWA Offline',
   'Python & Flask Dev',
   'MySQL & Docker',
   'Full Stack Developer'
@@ -223,3 +224,158 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.style.transform = 'perspective(600px) rotateX(0) rotateY(0) translateY(0)';
   });
 });
+
+/* ========================
+   INTERNATIONALIZATION (i18n) — ES / EN
+======================== */
+const phrasesEs = [
+  'Desarrollador Web',
+  'PHP & Arquitectura MVC',
+  'React & PWA Offline',
+  'Python & Flask Dev',
+  'MySQL & Docker',
+  'Full Stack Developer'
+];
+
+const phrasesEn = [
+  'Web Developer',
+  'PHP & MVC Architecture',
+  'React & Offline PWA',
+  'Python & Flask Dev',
+  'MySQL & Docker',
+  'Full Stack Developer'
+];
+
+const translations = {
+  es: {
+    'nav.about': 'Sobre mí',
+    'nav.skills': 'Skills',
+    'nav.projects': 'Proyectos',
+    'nav.contact': 'Contacto',
+    'hero.badge': 'Disponible para proyectos',
+    'hero.greeting': 'Hola, soy',
+    'hero.desc': 'Tecnólogo en Análisis y Desarrollo de Software apasionado por crear soluciones web robustas, eficientes y escalables.',
+    'hero.btnProjects': 'Ver Proyectos',
+    'hero.btnCV': 'Ver / Descargar CV',
+    'hero.btnContact': 'Contactar',
+    'about.title1': 'Sobre',
+    'about.title2': 'Mí',
+    'about.card1Title': '¿Quién soy?',
+    'about.card1Desc': 'Tecnólogo en Análisis y Desarrollo de Software con sólida experiencia en programación, bases de datos y arquitecturas web. Me especializo en construir aplicaciones funcionales, escalables y bien estructuradas que resuelven problemas reales.',
+    'about.card2Title': '¿Qué hago?',
+    'about.card2Desc': 'Desarrollo aplicaciones web de punta a punta usando PHP, Python con Flask, MySQL, HTML, CSS, JavaScript y React. Implemento soluciones con Docker y gestiono despliegues en entornos de producción sobre VPS.',
+    'about.card3Title': 'Mi enfoque',
+    'about.card3Desc': 'Perfil proactivo, autodidacta y orientado a la resolución de problemas. Me adapto con facilidad a nuevos retos tecnológicos y trabajo con atención al detalle para entregar soluciones limpias y de calidad.',
+    'about.stat1': 'Proyectos\nCompletados',
+    'about.stat2': 'Tecnologías\nDominadas',
+    'about.stat3': '% Compromiso\nen cada proyecto',
+    'skills.title1': 'Mis',
+    'skills.title2': 'Skills',
+    'projects.title1': 'Mis',
+    'projects.title2': 'Proyectos',
+    'projects.p1Title': 'Módulo CRUD — PWA Encuestas',
+    'projects.p1Desc': 'Aplicación Web Progresiva (PWA) Offline-First con IndexedDB (Dexie.js), sincronización reactiva en segundo plano, autenticación JWT, rotación inteligente de prioridades telefónicas y exportación nativa a Excel (.xlsx) con ExcelJS.',
+    'projects.p2Title': 'Sistema Impobiomedical',
+    'projects.p2Desc': 'Plataforma web de gestión comercial, cotizaciones médicas, calculadora de rentabilidad, catálogo de productos con imágenes, órdenes de compra por proveedor (P.O.), generación de PDFs oficiales y reportes estadísticos avanzados.',
+    'projects.p3Title': 'Sistema Gestión de Datos',
+    'projects.p3Desc': 'Sistema analítico y de auditoría académica para el SENA. Incluye procesamiento por lotes de juicios evaluativos de Sofia Plus, extracción curricular automatizada con Python (PDF GFPI-F-016), curvas de retención y auditoría de instructores.',
+    'projects.p4Title': 'Sistema Sodicol',
+    'projects.p4Desc': 'Aplicación web integral para la gestión y administración empresarial de Sodicol. Incluye módulos de autenticación, generación de PDFs, gestión de datos y reportes avanzados.',
+    'projects.p5Title': 'Sistema PQRS',
+    'projects.p5Desc': 'Plataforma de gestión de Peticiones, Quejas, Reclamos y Sugerencias. Permite el seguimiento, clasificación, generación de reportes en PDF y gestión completa del ciclo de vida de cada caso.',
+    'contact.title1': '¿Hablamos?',
+    'contact.title2': 'Contacto',
+    'contact.subtitle': '¿Tienes un proyecto en mente o quieres trabajar juntos? ¡Escríbeme!',
+    'contact.emailTitle': 'Correo Electrónico',
+    'contact.waTitle': 'WhatsApp',
+    'contact.ghTitle': 'GitHub',
+    'footer.designedBy': 'Diseñado y desarrollado por',
+    'footer.role': 'Tecnólogo en Análisis y Desarrollo de Software'
+  },
+  en: {
+    'nav.about': 'About me',
+    'nav.skills': 'Skills',
+    'nav.projects': 'Projects',
+    'nav.contact': 'Contact',
+    'hero.badge': 'Available for projects',
+    'hero.greeting': 'Hi, I am',
+    'hero.desc': 'Software Analysis & Development Technologist passionate about building robust, efficient, and scalable web solutions.',
+    'hero.btnProjects': 'View Projects',
+    'hero.btnCV': 'View / Download CV',
+    'hero.btnContact': 'Get in Touch',
+    'about.title1': 'About',
+    'about.title2': 'Me',
+    'about.card1Title': 'Who am I?',
+    'about.card1Desc': 'Software Analysis and Development Technologist with strong experience in programming, databases, and web architectures. I specialize in building functional, scalable, and well-structured applications that solve real-world problems.',
+    'about.card2Title': 'What I do?',
+    'about.card2Desc': 'I develop end-to-end web applications using PHP, Python with Flask, MySQL, HTML, CSS, JavaScript, and React. I implement containerized solutions with Docker and manage production deployments on VPS.',
+    'about.card3Title': 'My Approach',
+    'about.card3Desc': 'Proactive, self-taught, and problem-solving oriented. I adapt quickly to new technical challenges and maintain high attention to detail to deliver clean and high-quality software solutions.',
+    'about.stat1': 'Completed\nProjects',
+    'about.stat2': 'Mastered\nTechnologies',
+    'about.stat3': '% Commitment\nin every project',
+    'skills.title1': 'My',
+    'skills.title2': 'Skills',
+    'projects.title1': 'My',
+    'projects.title2': 'Projects',
+    'projects.p1Title': 'CRUD Module — Survey PWA',
+    'projects.p1Desc': 'Offline-First Progressive Web App (PWA) powered by IndexedDB (Dexie.js), background reactive synchronization, JWT authentication, smart phone queue prioritization, and native Excel (.xlsx) export via ExcelJS.',
+    'projects.p2Title': 'Impobiomedical System',
+    'projects.p2Desc': 'Commercial and biomedical management platform: automated quotations, margin calculator, product catalog with image processing, supplier purchase orders (P.O.), official PDF generation, and analytics.',
+    'projects.p3Title': 'Academic Data Management System',
+    'projects.p3Desc': 'Analytics and audit platform for SENA: batch processing of Sofia Plus evaluations, automated curriculum extraction with Python (PDF GFPI-F-016), apprentice retention metrics, and instructor auditing.',
+    'projects.p4Title': 'Sodicol System',
+    'projects.p4Desc': 'Comprehensive enterprise management web application for Sodicol. Features user authentication, PDF generation, customer data management, and business reporting.',
+    'projects.p5Title': 'PQRS System',
+    'projects.p5Desc': 'Inquiries, Complaints, Claims, and Suggestions management platform. Enables ticket lifecycle tracking, categorization, PDF reporting, and automated notifications.',
+    'contact.title1': 'Let’s talk?',
+    'contact.title2': 'Contact',
+    'contact.subtitle': 'Do you have a project in mind or want to collaborate? Send me a message!',
+    'contact.emailTitle': 'Email Address',
+    'contact.waTitle': 'WhatsApp',
+    'contact.ghTitle': 'GitHub',
+    'footer.designedBy': 'Designed and developed by',
+    'footer.role': 'Software Analysis & Development Technologist'
+  }
+};
+
+let currentLang = localStorage.getItem('portafolio_lang') || 'es';
+
+function updateLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('portafolio_lang', lang);
+  
+  // Actualizar frases del typed text
+  phrases = (lang === 'en') ? phrasesEn : phrasesEs;
+  pIdx = 0;
+  cIdx = 0;
+  deleting = false;
+
+  const currentLangText = document.getElementById('current-lang-text');
+  if (currentLangText) {
+    currentLangText.textContent = lang === 'es' ? 'EN' : 'ES';
+  }
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      if (translations[lang][key].includes('\n')) {
+        el.innerHTML = translations[lang][key].replace('\n', '<br/>');
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
+}
+
+const langToggleBtn = document.getElementById('lang-toggle-btn');
+if (langToggleBtn) {
+  langToggleBtn.addEventListener('click', () => {
+    const newLang = currentLang === 'es' ? 'en' : 'es';
+    updateLanguage(newLang);
+  });
+}
+
+// Inicializar idioma guardado
+updateLanguage(currentLang);
+

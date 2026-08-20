@@ -152,7 +152,8 @@ ul { list-style: none; }
 .logo-bracket { color: var(--blue); }
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  align-items: center;
+  gap: 2rem;
 }
 .nav-link {
   font-size: 0.9rem;
@@ -172,6 +173,38 @@ ul { list-style: none; }
 }
 .nav-link:hover, .nav-link.active { color: #fff; }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+.nav-cv-link {
+  color: #38bdf8 !important;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-toggle-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(77, 143, 255, 0.3);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+.lang-toggle-btn:hover {
+  background: rgba(77, 143, 255, 0.2);
+  border-color: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(77, 143, 255, 0.3);
+}
+
 .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: var(--transition); }
 
@@ -322,7 +355,9 @@ ul { list-style: none; }
   box-shadow: 0 6px 20px var(--blue-glow);
 }
 
-/* Hero Visual – 3D Orbital Sphere */
+/* ========================================================
+   HERO VISUAL — Premium Modern Profile Card UI
+   ======================================================== */
 .hero-visual {
   position: relative;
   flex-shrink: 0;
@@ -333,146 +368,240 @@ ul { list-style: none; }
   justify-content: center;
 }
 
-/* Sphere wrap */
-.sphere-wrap {
+.hero-photo-wrapper {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 320px;
+  height: 410px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Core glowing ball */
-.sphere-core {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #6eb4ff, #1a5fff 50%, #06102a);
-  box-shadow:
-    0 0 30px rgba(77,143,255,0.6),
-    0 0 60px rgba(77,143,255,0.3),
-    0 0 100px rgba(77,143,255,0.15),
-    inset 0 0 30px rgba(255,255,255,0.1);
+/* Ambient Neon Glow Behind Card */
+.photo-ambient-glow {
+  position: absolute;
+  width: 290px;
+  height: 380px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(77,143,255,0.45), rgba(0,212,255,0.35), rgba(129,140,248,0.25));
+  filter: blur(40px);
+  opacity: 0.7;
+  z-index: 1;
+  animation: glow-breathe 5s ease-in-out infinite alternate;
+}
+@keyframes glow-breathe {
+  0%   { transform: scale(0.92); opacity: 0.55; }
+  100% { transform: scale(1.08); opacity: 0.85; }
+}
+
+/* Main Glass Profile Card */
+.photo-main-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 26px;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid rgba(77, 143, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(77, 143, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-photo-wrapper:hover .photo-main-card {
+  border-color: rgba(77, 143, 255, 0.5);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    0 0 45px rgba(77, 143, 255, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Viewport for photo with cinematic color grade */
+.photo-img-viewport {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  background: #090d16;
+}
+
+.hero-profile-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+  /* Color grading profesional: mejor contraste, saturación cuidada y tono moderno */
+  filter: contrast(1.08) brightness(0.96) saturate(1.05);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+}
+.hero-photo-wrapper:hover .hero-profile-avatar {
+  transform: scale(1.04);
+  filter: contrast(1.12) brightness(1.02) saturate(1.08);
+}
+
+/* Bottom fade to seamlessly blend with card footer */
+.photo-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, rgba(13, 17, 23, 0.98) 0%, rgba(13, 17, 23, 0.6) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Card Footer Strip */
+.photo-card-footer {
+  position: relative;
+  z-index: 4;
+  padding: 14px 18px;
+  background: rgba(13, 17, 23, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 5;
-  position: relative;
-  animation: sphere-breathe 4s ease-in-out infinite;
+  justify-content: space-between;
 }
-@keyframes sphere-breathe {
-  0%,100% { box-shadow: 0 0 30px rgba(77,143,255,0.6), 0 0 60px rgba(77,143,255,0.3), 0 0 100px rgba(77,143,255,0.15), inset 0 0 30px rgba(255,255,255,0.1); }
-  50% { box-shadow: 0 0 50px rgba(77,143,255,0.9), 0 0 90px rgba(77,143,255,0.5), 0 0 140px rgba(77,143,255,0.2), inset 0 0 40px rgba(255,255,255,0.15); }
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-.sphere-code {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: -2px;
-  text-shadow: 0 0 20px rgba(255,255,255,0.5);
-  user-select: none;
+.footer-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.01em;
 }
-
-/* Pulse rings */
-.sphere-pulse {
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  border: 1px solid rgba(77,143,255,0.4);
-  animation: pulse-expand 3s ease-out infinite;
-}
-.sp2 { animation-delay: -1s; inset: -40px; border-color: rgba(77,143,255,0.2); }
-.sp3 { animation-delay: -2s; inset: -65px; border-color: rgba(77,143,255,0.1); }
-@keyframes pulse-expand {
-  0%   { transform: scale(0.8); opacity: 1; }
-  100% { transform: scale(1.4); opacity: 0; }
+.footer-role {
+  font-size: 0.75rem;
+  color: var(--cyan);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-/* Orbital rings – CSS 3D */
-.orbit {
-  position: absolute;
-  inset: -90px;
+.footer-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #34d399;
+}
+.status-live-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  border: 1px solid rgba(77,143,255,0.15);
-  animation: orbit-spin 8s linear infinite;
-  transform-style: preserve-3d;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse-dot 2s infinite;
 }
-.orbit-x { transform: rotateX(70deg);           animation-duration: 8s; }
-.orbit-y { transform: rotateX(70deg) rotateZ(60deg); animation-duration: 10s; animation-direction: reverse; }
-.orbit-z { transform: rotateX(70deg) rotateZ(120deg); animation-duration: 12s; }
-.orbit-w { transform: rotateX(70deg) rotateZ(180deg); animation-duration: 7s; animation-direction: reverse; }
-@keyframes orbit-spin {
-  from { transform: rotateX(70deg) rotateZ(0deg); }
-  to   { transform: rotateX(70deg) rotateZ(360deg); }
-}
-.orbit-y  { animation: orbit-spin-y 10s linear infinite reverse; }
-.orbit-z  { animation: orbit-spin-z 12s linear infinite; }
-.orbit-w  { animation: orbit-spin-w 7s linear infinite reverse; }
-@keyframes orbit-spin-y { from { transform: rotateX(70deg) rotateZ(60deg);  } to { transform: rotateX(70deg) rotateZ(420deg);  } }
-@keyframes orbit-spin-z { from { transform: rotateX(70deg) rotateZ(120deg); } to { transform: rotateX(70deg) rotateZ(480deg); } }
-@keyframes orbit-spin-w { from { transform: rotateX(70deg) rotateZ(180deg); } to { transform: rotateX(70deg) rotateZ(-180deg); } }
 
-/* Orbit dots (icons) */
-.orbit-dot {
+/* ========================================================
+   FLOATING INTERACTIVE METRIC BADGES (CHIPS)
+   ======================================================== */
+.hero-floating-chip {
   position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  z-index: 10;
+  background: rgba(10, 16, 35, 0.88);
+  border: 1px solid rgba(77, 143, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 10px 14px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(77, 143, 255, 0.1);
+  white-space: nowrap;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.hero-floating-chip:hover {
+  border-color: rgba(77, 143, 255, 0.45);
+  transform: scale(1.05) !important;
+}
+
+.chip-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(77,143,255,0.2), rgba(0,212,255,0.1));
+  border: 1px solid rgba(77,143,255,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  color: var(--blue);
+  flex-shrink: 0;
 }
-.od-php    { background: rgba(119,123,180,0.25); color: #a78bfa; }
-.od-py     { background: rgba(245,158,11,0.2);  color: #fbbf24; }
-.od-docker { background: rgba(0,212,255,0.15);  color: var(--cyan); }
-.od-js     { background: rgba(245,158,11,0.2);  color: #f59e0b; }
+.chip-icon-green {
+  background: linear-gradient(135deg, rgba(16,185,129,0.2), rgba(52,211,153,0.1));
+  border-color: rgba(16,185,129,0.3);
+  color: #34d399;
+}
+.chip-icon-cyan {
+  background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(56,189,248,0.1));
+  border-color: rgba(0,212,255,0.3);
+  color: var(--cyan);
+}
 
-/* Floating code cards */
-.code-float {
-  position: absolute;
-  background: rgba(10,16,35,0.85);
-  border: 1px solid rgba(77,143,255,0.18);
-  border-radius: 12px;
-  padding: 12px 16px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.72rem;
-  line-height: 1.7;
-  color: #94a3b8;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-  white-space: nowrap;
-  z-index: 10;
+.chip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
-.cf-1 { top: 20px;  left: -60px;  animation: cf-float 5s ease-in-out infinite; }
-.cf-2 { bottom: 50px; left: -40px; animation: cf-float 6s ease-in-out infinite reverse; animation-delay: -1s; }
-.cf-3 { bottom: 20px; right: -30px; animation: cf-float 4.5s ease-in-out infinite; animation-delay: -2s; }
-@keyframes cf-float {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
+.chip-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
 }
-.cf-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--blue);
-  display: inline-block;
-  margin-right: 6px;
-  animation: pulse-dot 2s infinite;
+.chip-lbl {
+  font-size: 0.7rem;
+  color: var(--gray);
+  font-weight: 500;
 }
-.cf-dot-green { background: var(--green); }
-.cf-dot-cyan  { background: var(--cyan); }
-.cf-kw  { color: #c084fc; }
-.cf-var { color: #60a5fa; }
-.cf-key { color: #94a3b8; }
-.cf-str { color: #4ade80; }
-.cf-cm  { color: #64748b; font-style: italic; }
+
+/* Floating badge positions & distinct micro-animations */
+.chip-exp {
+  top: -20px;
+  left: -80px;
+  animation: chip-float-1 5s ease-in-out infinite;
+}
+.chip-projects {
+  bottom: 60px;
+  left: -90px;
+  animation: chip-float-2 6s ease-in-out infinite 0.5s;
+}
+.chip-docker {
+  top: -15px;
+  right: -75px;
+  animation: chip-float-3 5.5s ease-in-out infinite 1s;
+}
+
+@keyframes chip-float-1 {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%      { transform: translateY(-8px) rotate(0.5deg); }
+}
+@keyframes chip-float-2 {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50%      { transform: translateY(-8px) rotate(-0.5deg); }
+}
+@keyframes chip-float-3 {
+  0%, 100% { transform: translateY(0) rotate(-0.5deg); }
+  50%      { transform: translateY(-8px) rotate(1deg); }
+}
 
 
 /* ========================
@@ -723,6 +852,20 @@ ul { list-style: none; }
 [id^="skill-xampp"] { --icon-color:#fb923c; --icon-bg:rgba(251,146,60,0.1); --icon-border:rgba(251,146,60,0.2); --icon-bg-hover:rgba(251,146,60,0.18); --card-color:rgba(251,146,60,0.35); --card-glow:linear-gradient(135deg,rgba(251,146,60,0.08),transparent); --card-glow-color:rgba(251,146,60,0.2); }
 /* Draw.io – violet */
 [id^="skill-drawio"]{ --icon-color:#a855f7; --icon-bg:rgba(168,85,247,0.1); --icon-border:rgba(168,85,247,0.2); --icon-bg-hover:rgba(168,85,247,0.18); --card-color:rgba(168,85,247,0.35); --card-glow:linear-gradient(135deg,rgba(168,85,247,0.08),transparent); --card-glow-color:rgba(168,85,247,0.2); }
+/* React – cyan */
+[id^="skill-react"] { --icon-color:#00d8ff; --icon-bg:rgba(0,216,255,0.1); --icon-border:rgba(0,216,255,0.25); --icon-bg-hover:rgba(0,216,255,0.2); --card-color:rgba(0,216,255,0.35); --card-glow:linear-gradient(135deg,rgba(0,216,255,0.08),transparent); --card-glow-color:rgba(0,216,255,0.2); }
+/* Node.js – emerald green */
+[id^="skill-node"]  { --icon-color:#22c55e; --icon-bg:rgba(34,197,94,0.1); --icon-border:rgba(34,197,94,0.25); --icon-bg-hover:rgba(34,197,94,0.2); --card-color:rgba(34,197,94,0.35); --card-glow:linear-gradient(135deg,rgba(34,197,94,0.08),transparent); --card-glow-color:rgba(34,197,94,0.2); }
+/* TailwindCSS – sky blue */
+[id^="skill-tailwind"]{ --icon-color:#38bdf8; --icon-bg:rgba(56,189,248,0.1); --icon-border:rgba(56,189,248,0.25); --icon-bg-hover:rgba(56,189,248,0.2); --card-color:rgba(56,189,248,0.35); --card-glow:linear-gradient(135deg,rgba(56,189,248,0.08),transparent); --card-glow-color:rgba(56,189,248,0.2); }
+/* PWA / IndexedDB – amber */
+[id^="skill-pwa"]   { --icon-color:#f59e0b; --icon-bg:rgba(245,158,11,0.1); --icon-border:rgba(245,158,11,0.25); --icon-bg-hover:rgba(245,158,11,0.2); --card-color:rgba(245,158,11,0.35); --card-glow:linear-gradient(135deg,rgba(245,158,11,0.08),transparent); --card-glow-color:rgba(245,158,11,0.2); }
+
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
 
 /* ========================
    PROJECTS

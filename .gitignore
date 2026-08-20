@@ -27,3 +27,11 @@ dist/
 # ── npm (si algún día se agrega tooling) ──────────────────────
 node_modules/
 npm-debug.log*
+
+# ── Imágenes / Fotos personales ───────────────────────────────
+assets/img/
+*.png
+*.jpg
+*.jpeg
+*.webp
+
