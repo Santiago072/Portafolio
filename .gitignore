@@ -29,9 +29,8 @@ node_modules/
 npm-debug.log*
 
 # ── Imágenes / Fotos personales ───────────────────────────────
-assets/img/
-*.png
-*.jpg
-*.jpeg
+assets/img/*
+!assets/img/profile2.png
+!assets/img/profile.jpg
 *.webp
 
