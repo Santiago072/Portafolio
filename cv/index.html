@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curriculum Vitae — Santiago Lizcano Suarez</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="alternate icon" href="../assets/img/favicon.svg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -417,7 +422,7 @@
       <span>Curriculum Vitae — Santiago Lizcano</span>
     </div>
     <div class="toolbar-actions">
-      <a href="../index.html" class="btn btn-back">
+      <a href="../index.html" class="btn btn-back" id="btn-back-portfolio">
         <i class="fas fa-arrow-left"></i> Volver al Portafolio
       </a>
       <button onclick="window.print()" class="btn btn-print">
@@ -635,5 +640,21 @@
 
   </main>
 
+  <script>
+    const backBtn = document.getElementById('btn-back-portfolio');
+    if (backBtn) {
+      backBtn.addEventListener('click', (e) => {
+        // Si hay historial previo de navegación (misma pestaña), vuelve atrás
+        if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) {
+          e.preventDefault();
+          window.history.back();
+        } else if (window.opener) {
+          // Si se abrió como popup o pestaña secundaria con opener
+          e.preventDefault();
+          window.close();
+        }
+      });
+    }
+  </script>
 </body>
 </html>

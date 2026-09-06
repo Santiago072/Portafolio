@@ -31,5 +31,7 @@ npm-debug.log*
 # ── Imágenes / Fotos personales ───────────────────────────────
 assets/img/*
 !assets/img/profile2.png
+!assets/img/project-*.png
+!assets/img/favicon.svg
 *.webp
 
