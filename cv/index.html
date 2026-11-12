@@ -391,6 +391,42 @@
       color: var(--text-muted);
     }
 
+    /* Referencias */
+    .references-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .reference-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 9px 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .reference-type {
+      font-size: 0.66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--accent-blue);
+    }
+    .reference-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+    .reference-meta {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
     /* ── MODO IMPRESIÓN / PDF ── */
     @media print {
       body {
@@ -564,10 +600,10 @@
           <div class="timeline-item">
             <div class="item-head">
               <span class="item-title">Sistema Impobiomedical — Cotizaciones y Órdenes de Compra</span>
-              <span class="item-badge">2026 &middot; En uso</span>
+              <span class="item-badge">2026 &middot; En producción (Contrato)</span>
             </div>
             <p class="item-desc">
-              Sistema web para una empresa del sector biomédico. Permite crear cotizaciones calculando márgenes e impuestos, organizar el catálogo de productos con fotos, registrar clientes y proveedores, emitir órdenes de compra y descargar los formatos oficiales en PDF y Excel.
+              Sistema web desarrollado por contrato para la cliente <strong>Adriana Medina Calle</strong> (empresa del sector biomédico) y actualmente en funcionamiento. Permite elaborar cotizaciones calculando márgenes e impuestos, organizar el catálogo de productos con fotografías, administrar clientes, proveedores y usuarios con sus permisos, generar órdenes de compra y descargar los formatos oficiales listos en PDF y Excel.
             </p>
             <div class="item-tags">
               <span class="item-tag">PHP</span>
@@ -575,43 +611,7 @@
               <span class="item-tag">HTML y CSS</span>
               <span class="item-tag">JavaScript</span>
               <span class="item-tag">PDF y Excel</span>
-              <span class="item-tag">Docker</span>
-            </div>
-          </div>
-
-          <!-- Sistema Gestión de Datos SENA -->
-          <div class="timeline-item">
-            <div class="item-head">
-              <span class="item-title">Sistema de Gestión de Datos — Consulta de Reportes SENA</span>
-              <span class="item-badge">2026 &middot; Proyecto SENA</span>
-            </div>
-            <p class="item-desc">
-              Aplicación web para revisar y organizar los reportes de evaluación de aprendices descargados de Sofia Plus. Permite subir archivos Excel y PDF para consultar el avance de cada ficha, el estado de los aprendices y ver resúmenes con gráficas claras.
-            </p>
-            <div class="item-tags">
-              <span class="item-tag">PHP</span>
-              <span class="item-tag">Python</span>
-              <span class="item-tag">MariaDB</span>
-              <span class="item-tag">JavaScript</span>
-              <span class="item-tag">Gráficas</span>
-            </div>
-          </div>
-
-          <!-- Sistema Sodicol -->
-          <div class="timeline-item">
-            <div class="item-head">
-              <span class="item-title">Sistema Sodicol — Gestión Comercial y Cotizaciones</span>
-              <span class="item-badge">2026 &middot; Proyecto Web</span>
-            </div>
-            <p class="item-desc">
-              Plataforma web para elaborar y consultar cotizaciones comerciales, administrar el listado de productos y clientes, controlar el acceso de los usuarios y generar los documentos listos en PDF.
-            </p>
-            <div class="item-tags">
-              <span class="item-tag">PHP</span>
-              <span class="item-tag">MySQL</span>
-              <span class="item-tag">HTML y CSS</span>
-              <span class="item-tag">JavaScript</span>
-              <span class="item-tag">PDF</span>
+              <span class="item-tag">Docker y Linux VPS</span>
             </div>
           </div>
 
@@ -635,6 +635,25 @@
             <span class="edu-desc">Bases de programación, manejo y mantenimiento de computadores, redes y herramientas de oficina.</span>
           </div>
 
+        </div>
+      </div>
+
+      <!-- Referencias -->
+      <div>
+        <h3 class="main-section-title"><i class="fas fa-user-check"></i> Referencias</h3>
+        <div class="references-grid">
+          <div class="reference-card">
+            <span class="reference-type">Referencia Laboral</span>
+            <span class="reference-name">Adriana Medina Calle</span>
+            <span class="reference-meta"><i class="fas fa-briefcase" style="color:#0284c7"></i> Cliente &middot; Impobiomedical</span>
+            <span class="reference-meta"><i class="fas fa-phone" style="color:#2563eb"></i> +57 310 269 0595</span>
+          </div>
+          <div class="reference-card">
+            <span class="reference-type">Referencia Personal</span>
+            <span class="reference-name">Hather Uriel Lizcano Suarez</span>
+            <span class="reference-meta"><i class="fas fa-user" style="color:#0284c7"></i> Contacto personal</span>
+            <span class="reference-meta"><i class="fas fa-phone" style="color:#2563eb"></i> +57 313 240 6207</span>
+          </div>
         </div>
       </div>
 
