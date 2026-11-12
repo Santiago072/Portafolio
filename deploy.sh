@@ -23,7 +23,7 @@ git reset --hard origin/main
 
 # Paso 2: Reconstruir imagen y reiniciar contenedor
 echo "🐳 Reconstruyendo y levantando contenedor Docker..."
-docker compose up -d --build
+docker compose -p portafolio_santiago up -d --build
 
 # Paso 3: Limpiar imágenes obsoletas
 echo "🧹 Limpiando imágenes antiguas..."
@@ -37,6 +37,6 @@ docker ps --filter "name=portafolio_app" --format "table {{.Names}}\t{{.Status}}
 echo ""
 echo "=========================================="
 echo " ✅ ¡Despliegue completado con éxito!"
-echo "    🌐 App: https://prtf.slscode.online"
+echo "    🌐 App: https://santiagolizcano.slscode.online"
 echo "=========================================="
 echo ""
